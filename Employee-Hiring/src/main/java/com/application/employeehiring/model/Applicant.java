@@ -1,22 +1,25 @@
 package com.application.employeehiring.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Applicant {
      @Id
-     private int id;
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
+     private long id;
      private String name;
      private String email;
      private String phone;
      private String location;
      private String jobTitle;
      private int pastExperience;
-     public int getId() {
+     public long getId() {
           return id;
      }
-     public void setId(int id) {
+     public void setId(long id) {
           this.id = id;
      }
      public String getName() {
@@ -55,7 +58,7 @@ public class Applicant {
      public void setPastExperience(int pastExperience) {
           this.pastExperience = pastExperience;
      }
-     public Applicant(int id, String name, String email, String phone, String location, String jobTitle,
+     public Applicant(long id, String name, String email, String phone, String location, String jobTitle,
                int pastExperience) {
           this.id = id;
           this.name = name;
@@ -67,6 +70,5 @@ public class Applicant {
      }
      public Applicant() {
      }
-
 
 }
